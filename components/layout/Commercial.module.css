@@ -1,0 +1,14 @@
+.video-commercial {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.entry-link {
+  position: fixed;
+  font-size: 3rem;
+  bottom: 5%;
+  left: 5%;
+  color: #fff;
+}
