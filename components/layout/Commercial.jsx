@@ -5,16 +5,18 @@ import Link from 'next/link';
 const Commercial = () => {
   return (
     <>
-      <video
-        // autoPlay
-        muted
-        loop
-        className={classes['video-commercial']}
-      >
-        <source src='/videos/commercial.mp4' type='video/mp4' />
-      </video>
+      <Link href='/products'>
+        <video
+          // autoPlay
+          muted
+          loop
+          className={classes['video-commercial']}
+        >
+          <source src='/videos/commercial.mp4' type='video/mp4' />
+        </video>
+      </Link>
       <div className={classes['entry-link']}>
-        <Link href='/test'>Explore </Link>
+        <Link href='/products'>Explore </Link>
       </div>
     </>
   );

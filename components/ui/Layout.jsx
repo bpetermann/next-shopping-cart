@@ -1,5 +1,5 @@
 import React from 'react';
-import MainHeader from './MainHeader';
+import MainHeader from '../layout/MainHeader';
 
 const Layout = ({ children }) => {
   return (
