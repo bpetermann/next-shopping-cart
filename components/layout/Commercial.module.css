@@ -8,11 +8,15 @@
 
 .entry-link {
   position: fixed;
+  text-decoration: underline;
   font-size: 3rem;
   bottom: 5%;
   left: 5%;
-  color: #fff;
   /* animation: slide-in 400ms ease-out forwards; */
+}
+
+.entry-link a {
+  color: #fff;
 }
 
 /* @keyframes slide-in {

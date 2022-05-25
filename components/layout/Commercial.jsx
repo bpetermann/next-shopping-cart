@@ -6,12 +6,7 @@ const Commercial = () => {
   return (
     <>
       <Link href='/products'>
-        <video
-          // autoPlay
-          muted
-          loop
-          className={classes['video-commercial']}
-        >
+        <video autoPlay muted loop className={classes['video-commercial']}>
           <source src='/videos/commercial.mp4' type='video/mp4' />
         </video>
       </Link>

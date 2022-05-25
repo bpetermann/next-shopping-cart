@@ -16,13 +16,11 @@ const Footer = () => {
           <SiFacebook size={36} />
           <SiInstagram size={36} />
         </div>
-        <div className={classes['navigation-container']}>
-          <nav>
-            <a href='https://github.com/bpetermann'>Privacy Policy</a>
-            <a href='https://github.com/bpetermann'>Terms of Use</a>
-            <a href='https://github.com/bpetermann'>Cookie Preferences</a>
-          </nav>
-        </div>
+        <nav className={classes['navigation-container']}>
+          <a href='https://github.com/bpetermann'>Privacy Policy</a>
+          <a href='https://github.com/bpetermann'>Terms of Use</a>
+          <a href='https://github.com/bpetermann'>Cookie Preferences</a>
+        </nav>
       </div>
     </div>
   );
