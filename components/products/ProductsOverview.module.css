@@ -33,6 +33,7 @@
 
 .products-container {
   grid-area: main;
+  z-index: 50;
   background-color: #07c7ee;
   display: flex;
   flex-direction: column;
@@ -51,8 +52,7 @@
 }
 
 .product-image {
-  width: 10rem;
-  height: 14rem;
+  cursor: pointer;
 }
 
 .price {
@@ -75,8 +75,6 @@
 
 .wishlist-button {
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
   align-items: center;
   vertical-align: middle;
   background-color: #fff;
@@ -87,16 +85,7 @@
   left: 4rem;
 }
 
-.heart-button {
-  padding-top: 0.3rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.wishlistHeartBtn {
-  padding-top: 0.3rem;
-  width: 1.5rem;
-  height: 1.5rem;
+.wishlist-heart-button {
   filter: invert(29%) sepia(98%) saturate(2440%) hue-rotate(6deg)
     brightness(108%) contrast(102%);
 }
@@ -129,6 +118,7 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
   .model-image {
     height: 28rem;
   }

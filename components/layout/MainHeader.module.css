@@ -3,6 +3,16 @@
   justify-content: space-between;
   border-bottom: 0.06rem solid #d0d1d3;
   padding: 0 1rem;
+  background-color: #fff;
+}
+
+.products-link {
+  display: block;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
 
 .searchbar {

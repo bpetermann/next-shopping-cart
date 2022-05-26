@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import classes from './ProductsOverview.module.css';
 import Footer from '../layout/Footer';
+import { Link } from '@mui/material';
 
 const ProductsOverview = ({ products }) => {
   return (
@@ -20,17 +22,24 @@ const ProductsOverview = ({ products }) => {
           {products.map((item) => {
             return (
               <div className={classes['product-item-container']} key={item.id}>
-                <img
-                  src={`/images/${item.name}.png`}
-                  alt={item.name}
-                  className={classes['product-image']}
-                />
-                <button className={classes['wishlist-button']}>
-                  <img
-                    src={'/images/heart.png'}
-                    alt={'Add Item to your Wishlist'}
-                    className={classes['heart-button']}
+                <Link href={`/products/${item.id}`}>
+                  <Image
+                    src={`/images/${item.name}.png`}
+                    alt={item.name}
+                    className={classes['product-image']}
+                    width={160}
+                    height={224}
                   />
+                </Link>
+                <button className={classes['wishlist-button']}>
+                  <div className={classes['heart-button']}>
+                    <Image
+                      src={'/images/heart.png'}
+                      alt={'Add Item to your Wishlist'}
+                      width={24}
+                      height={24}
+                    />
+                  </div>
                 </button>
                 <div>{item.description}</div>
                 <div>{item.price} $</div>

@@ -1,12 +1,14 @@
 import React from 'react';
 import classes from './MainHeader.module.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { Link } from '@mui/material';
 
 const MainHeader = () => {
   return (
     <header>
       <div className={classes['container']}>
-        <h2>Shopping Cart</h2>
+        <Link className={classes['products-link']}
+         href='/products'>Shopping Cart</Link>
       </div>
       <div className={classes['searchbar']}>
         <button className={classes['toggle-button']}>
