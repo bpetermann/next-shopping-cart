@@ -3,7 +3,7 @@ import classes from './ProductsOverview.module.css';
 import Footer from '../layout/Footer';
 import { Link } from '@mui/material';
 
-const ProductsOverview = ({ products }) => {
+const ProductsOverview = ({ selectedItems }) => {
   return (
     <>
       <div className={classes.container}>
@@ -19,7 +19,7 @@ const ProductsOverview = ({ products }) => {
           />
         </div>
         <div className={classes['products-container']}>
-          {products.map((item) => {
+          {selectedItems.map((item) => {
             return (
               <div className={classes['product-item-container']} key={item.id}>
                 <Link href={`/products/${item.id}`}>

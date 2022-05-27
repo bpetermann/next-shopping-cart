@@ -5,21 +5,23 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function SimpleAccordion() {
+export default function SimpleAccordion({ color, backgroundColor, headline }) {
   return (
     <div>
       <Accordion
         sx={{
           margin: '1.5rem 0',
           boxShadow: 'none',
+          backgroundColor: backgroundColor,
+          color: color,
         }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon style={{ color: color }} />}
           aria-controls='panel1a-content'
           id='panel1a-header'
         >
-          <Typography>About us</Typography>
+          <Typography>{headline[0]}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
@@ -40,14 +42,16 @@ export default function SimpleAccordion() {
           '&:before': {
             display: 'none',
           },
+          backgroundColor: backgroundColor,
+          color: color,
         }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon style={{ color: color }} />}
           aria-controls='panel2a-content'
           id='panel2a-header'
         >
-          <Typography>Contact &amp; FAQ</Typography>
+          <Typography>{headline[1]}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
@@ -68,14 +72,16 @@ export default function SimpleAccordion() {
           '&:before': {
             display: 'none',
           },
+          backgroundColor: backgroundColor,
+          color: color,
         }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon style={{ color: color }} />}
           aria-controls='panel2a-content'
           id='panel2a-header'
         >
-          <Typography>Careers</Typography>
+          <Typography>{headline[2]}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
@@ -92,3 +98,8 @@ export default function SimpleAccordion() {
     </div>
   );
 }
+
+SimpleAccordion.defaultProps = {
+  color: '#000',
+  headline: ['About us', 'Contact & FAQ', 'Careers'],
+};

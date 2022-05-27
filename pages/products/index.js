@@ -1,9 +1,22 @@
+import React, { useState } from 'react';
+import Searchbar from '../../components/layout/Searchbar';
 import ProductsOverview from '../../components/products/ProductsOverview';
 
 const HomePage = ({ products }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const searchTermChangeHandler = (text) => {
+    setSearchTerm(text);
+  };
+
+  let filteredItems = products.filter((item) => {
+    return item.description.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
     <>
-      <ProductsOverview products={products} />
+      <Searchbar onChangeSearchTerm={searchTermChangeHandler} />
+      <ProductsOverview selectedItems={filteredItems} />
     </>
   );
 };

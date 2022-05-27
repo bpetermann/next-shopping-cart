@@ -6,7 +6,7 @@ import { RiTruckLine } from 'react-icons/ri';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
 
-const ProductDetail = ({ name, description, id, price }) => {
+const ProductDetail = ({ name, description, price }) => {
   return (
     <>
       <div className={classes['container']}>
@@ -20,8 +20,8 @@ const ProductDetail = ({ name, description, id, price }) => {
           />
         </div>
         <div className={classes['product-container']}>
-          <h2>{name}</h2>
-          <p>{description}</p>
+          <h2 className={classes['product-name']}>{name}</h2>
+          <p className={classes['product-description']}>{description}</p>
           <p>€{price}</p>
           <form className={classes['product-order-form']}>
             <select>
@@ -61,7 +61,9 @@ const ProductDetail = ({ name, description, id, price }) => {
               </tr>
             </tbody>
           </table>
-          <Accordion />
+          <Accordion
+            headline={['Materials & Care', 'Quality', 'Delivery & Returns']}
+          />
         </div>
       </div>
       <Footer />

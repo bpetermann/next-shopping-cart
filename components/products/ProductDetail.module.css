@@ -1,9 +1,9 @@
 .container {
   margin: auto;
-  width: 90%;
+  width: 100%;
   display: grid;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.75rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
@@ -19,9 +19,14 @@
 
 .product-container {
   display: flex;
-  padding: 0 1rem;
+  width: 90%;
+  margin: auto;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.product-name {
+  margin-top: 0;
 }
 
 .product-order-form {
@@ -39,6 +44,7 @@
   background-color: #efeff0;
   border: 0.06rem solid #d0d1d3;
 }
+
 .product-order-form button {
   width: 100%;
   cursor: pointer;
@@ -51,7 +57,7 @@
 }
 
 .product-table {
-  margin: 1.75rem 0;
+  margin-top: 1.75rem;
   width: 100%;
   border-collapse: collapse;
 }
@@ -63,7 +69,7 @@
   text-align: left;
   font-size: 0.8rem;
   letter-spacing: 0;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   font-weight: 700;
   font-family: inherit;
 }
@@ -79,7 +85,7 @@
 
 @media (min-width: 40rem) {
   .container {
-    width: 75%;
-    max-width: 60rem;
+    width: 90%;
+    max-width: 80rem;
   }
 }
