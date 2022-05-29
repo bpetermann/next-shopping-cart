@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classes from './Newsletter.module.css';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const Newsletter = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -25,38 +26,46 @@ const Newsletter = () => {
   return (
     <div className={classes.container}>
       <h2>JOIN OUR NEWSLETTER!</h2>
-      <form className={classes.formContainer} onSubmit={registrationHandler}>
-        <input
-          onChange={emailInputHandler}
-          className={classes.emailadress}
-          type='email'
-          id='email'
-          name='email'
-          placeholder='Your Email'
-          value={enteredEmail}
-        />
-        <h3>I'm mostly interested in</h3>
-        <div>
+      <div className={classes['form-container-wrapper']}>
+        <form
+          className={classes['form-container']}
+          onSubmit={registrationHandler}
+        >
           <input
-            type='checkbox'
-            id='wfashion'
-            name='wfashion'
-            value='wfashion'
-            defaultChecked='checked'
+            onChange={emailInputHandler}
+            className={classes.emailadress}
+            type='email'
+            id='email'
+            name='email'
+            placeholder='Your Email'
+            value={enteredEmail}
           />
-          <label htmlFor='wfashion'>Women's Fahsion</label>
-        </div>
-        <div>
-          <input
-            type='checkbox'
-            id='mfashion'
-            name='mfashion'
-            value='mfashion'
-          />
-          <label htmlFor='mfashion'>Men's Fashion</label>
-        </div>
-        <input type='submit' value='Add my Email' className={classes.button} />
-      </form>
+          <h3>I'm mostly interested in</h3>
+          <div>
+            <input
+              type='checkbox'
+              id='wfashion'
+              name='wfashion'
+              value='wfashion'
+              defaultChecked='checked'
+            />
+            <label htmlFor='wfashion'>Women's Fahsion</label>
+          </div>
+          <div>
+            <input
+              type='checkbox'
+              id='mfashion'
+              name='mfashion'
+              value='mfashion'
+            />
+            <label htmlFor='mfashion'>Men's Fashion</label>
+          </div>
+          <button type='submit' className={classes.button}>
+            <AiOutlineMail size={22} className={classes['newsletter-icon']} />
+            <span>Add my Email</span>
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

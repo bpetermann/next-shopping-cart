@@ -26,8 +26,8 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
         <AccordionDetails>
           <Typography
             sx={{
-              fontFamily: 'Noto Sans, sans-serif',
-              color: '#949494',
+              fontSize: '0.8rem',
+              color: color,
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -56,8 +56,8 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
         <AccordionDetails>
           <Typography
             sx={{
-              fontFamily: 'Noto Sans, sans-serif',
-              color: '#949494',
+              fontSize: '0.8rem',
+              color: color,
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -86,8 +86,8 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
         <AccordionDetails>
           <Typography
             sx={{
-              fontFamily: 'Noto Sans, sans-serif',
-              color: '#949494',
+              fontSize: '0.8rem',
+              color: color,
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse

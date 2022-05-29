@@ -1,26 +1,40 @@
 .container {
   height: 20rem;
-  background-color: #fff;
+  background-color: #ededed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
-.formContainer {
+.form-container-wrapper {
+  height: 18rem;
+}
+
+.form-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  background-color: #efeff0;
+  background-color: #fff;
   padding: 1rem;
+}
+
+.form-container input:focus,
+.form-container input:active,
+.form-container input:hover {
+  outline: 0.125rem solid #000;
 }
 
 .emailadress {
   height: 2.5rem;
   font-size: 1rem;
   text-align: center;
-  border: 1px solid #d0d1d3;
+  border: 0.02rem solid #d0d1d3;
+}
+.newsletter-icon {
+  vertical-align: middle;
+  margin-right: 0.5rem;
 }
 
 .button {
@@ -31,6 +45,10 @@
   outline: none;
   border: none;
   margin-top: 0.5rem;
+}
+
+.button span {
+  vertical-align: middle;
 }
 
 .button:hover {
@@ -48,5 +66,9 @@
   .container {
     flex-direction: row;
     align-items: center;
+  }
+
+  .form-container-wrapper {
+    margin-bottom: -2rem;
   }
 }
