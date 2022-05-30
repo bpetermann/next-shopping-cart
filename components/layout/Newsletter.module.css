@@ -20,18 +20,19 @@
   padding: 1rem;
 }
 
-.form-container input:focus,
-.form-container input:active,
-.form-container input:hover {
-  outline: 0.125rem solid #000;
-}
-
 .emailadress {
   height: 2.5rem;
   font-size: 1rem;
   text-align: center;
   border: 0.02rem solid #d0d1d3;
 }
+
+.emailadress:focus,
+.emailadress:active,
+.emailadress:hover {
+  outline: 0.125rem solid #000;
+}
+
 .newsletter-icon {
   vertical-align: middle;
   margin-right: 0.5rem;

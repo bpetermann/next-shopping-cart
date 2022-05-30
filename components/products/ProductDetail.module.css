@@ -29,6 +29,14 @@
   margin-top: 0;
 }
 
+.product-description {
+  margin: 0;
+}
+
+.product-rating {
+  margin-bottom: 1rem;
+}
+
 .product-order-form {
   width: 100%;
 }

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export function buildFeedbackPath() {
-  return path.join(process.cwd(), 'data', 'newsletter.json');
+  return path.join(process.cwd(), 'data', 'product-ratings.json');
 }
 
 export function extractFeedback(filePath) {
@@ -13,18 +13,19 @@ export function extractFeedback(filePath) {
 
 function handler(req, res) {
   if (req.method === 'POST') {
-    const userEmail = req.body.email;
+    const productId = req.body.id;
+    const userRating = req.body.rating;
 
-    if (!userEmail || !userEmail.includes('@')) {
-      res.status(422).json({ message: 'Invalid email adress' });
-      return;
-    }
+    const newRating = {
+      id: productId,
+      rating: userRating,
+    };
 
     const filePath = buildFeedbackPath();
     const data = extractFeedback(filePath);
-    data.push(userEmail);
+    data.push(newRating);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.status(201).json({ message: 'Success!', email: userEmail });
+    res.status(201).json({ message: 'Success!', rating: newRating });
   }
 }
 
