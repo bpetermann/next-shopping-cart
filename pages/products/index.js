@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Searchbar from '../../components/layout/Searchbar';
 import ProductsOverview from '../../components/products/ProductsOverview';
+import WishlistContext from '../../store/wishlist-context';
+import CartContext from '../../store/cart-context';
+import Wishlist from '../../components/wishlist/Wishlist';
+import Cart from '../../components/cart/Cart';
 
 const HomePage = ({ products }) => {
+  const { getStoredCartItems, showShoppingCart } = useContext(CartContext);
+  const { getStoredWishlistItems, showWishlist } = useContext(WishlistContext);
+
+  useEffect(() => {
+    getStoredWishlistItems(products);
+    getStoredCartItems(products);
+  }, []);
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchTermChangeHandler = (text) => {
@@ -15,6 +27,8 @@ const HomePage = ({ products }) => {
 
   return (
     <>
+      {showShoppingCart && <Cart />}
+      {showWishlist && <Wishlist />}
       <Searchbar onChangeSearchTerm={searchTermChangeHandler} />
       <ProductsOverview selectedItems={filteredItems} />
     </>

@@ -1,9 +1,15 @@
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import classes from './ProductsOverview.module.css';
 import Footer from '../layout/Footer';
 import { Link } from '@mui/material';
+import CartContext from '../../store/cart-context';
+import WishlistContext from '../../store/wishlist-context';
 
 const ProductsOverview = ({ selectedItems }) => {
+  const cartCtx = useContext(CartContext);
+  const wishlistCtx = useContext(WishlistContext);
+
   return (
     <>
       <div className={classes.container}>
@@ -31,19 +37,43 @@ const ProductsOverview = ({ selectedItems }) => {
                     height={224}
                   />
                 </Link>
-                <button className={classes['wishlist-button']}>
-                  <div className={classes['heart-button']}>
-                    <Image
-                      src={'/images/heart.png'}
-                      alt={'Add Item to your Wishlist'}
-                      width={24}
-                      height={24}
-                    />
-                  </div>
-                </button>
+                {wishlistCtx.wishlistItems.includes(item) ? (
+                  <button
+                    className={classes['wishlist-button']}
+                    onClick={() => wishlistCtx.removeFromWishlist(item)}
+                  >
+                    <div className={classes['wishlist-heart-button']}>
+                      <Image
+                        src={'/images/heart-full.png'}
+                        alt={'Item is on your Wishlist'}
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                  </button>
+                ) : (
+                  <button
+                    className={classes['wishlist-button']}
+                    onClick={() => wishlistCtx.addToWishlist(item)}
+                  >
+                    <div className={classes['heart-button']}>
+                      <Image
+                        src={'/images/heart.png'}
+                        alt={'Add Item to your Wishlist'}
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                  </button>
+                )}
                 <div>{item.description}</div>
                 <div>{item.price} $</div>
-                <button className={classes.button}>Add to Cart</button>
+                <button
+                  className={classes.button}
+                  onClick={() => cartCtx.addToCart(item)}
+                >
+                  Add to Cart
+                </button>
               </div>
             );
           })}

@@ -1,13 +1,29 @@
+import React, { useContext, useEffect } from 'react';
 import ProductDetail from '../../components/products/ProductDetail';
+import CartContext from '../../store/cart-context';
+import WishlistContext from '../../store/wishlist-context';
+import Wishlist from '../../components/wishlist/Wishlist';
+import Cart from '../../components/cart/Cart';
 
-const ProductDetailPage = ({ selectedProduct }) => {
+const ProductDetailPage = ({ selectedProduct, allProducts }) => {
+  const { getStoredCartItems, showShoppingCart } = useContext(CartContext);
+  const { getStoredWishlistItems, showWishlist } = useContext(WishlistContext);
+
+  useEffect(() => {
+    getStoredWishlistItems(allProducts);
+    getStoredCartItems(allProducts);
+  }, []);
+
   return (
     <div>
+      {showShoppingCart && <Cart />}
+      {showWishlist && <Wishlist />}
       <ProductDetail
         name={selectedProduct.name}
         description={selectedProduct.description}
         price={selectedProduct.price}
         id={selectedProduct.id}
+        amount={selectedProduct.amount}
       />
     </div>
   );
@@ -34,10 +50,12 @@ export async function getStaticProps(context) {
 
   const products = await getProducts();
 
+  const allProducts = [...products];
+
   const product = products.find((product) => product.id === productId);
 
   return {
-    props: { selectedProduct: product },
+    props: { selectedProduct: product, allProducts: allProducts },
     revalidate: 30,
   };
 }

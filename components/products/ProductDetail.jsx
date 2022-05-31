@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import classes from './ProductDetail.module.css';
 import Image from 'next/image';
 import Accordion from '../ui/Accordion';
@@ -7,8 +8,10 @@ import { BsArrowReturnLeft } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
 import { YourRating, AverageRating } from '../ui/Rating';
 import { useEffect, useState } from 'react';
+import CartContext from '../../store/cart-context';
 
-const ProductDetail = ({ name, description, price, id }) => {
+const ProductDetail = ({ name, description, price, id, amount }) => {
+  const cartCtx = useContext(CartContext);
   const [rating, setRating] = useState(null);
 
   const productRatingHandler = (value) => {
@@ -62,7 +65,14 @@ const ProductDetail = ({ name, description, price, id }) => {
             <select>
               <option value='one'>One Size</option>
             </select>
-            <button>Add to Cart</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                cartCtx.addToCart({ name, description, price, id, amount });
+              }}
+            >
+              Add to Cart
+            </button>
           </form>
           <table className={classes['product-table']}>
             <tbody>
