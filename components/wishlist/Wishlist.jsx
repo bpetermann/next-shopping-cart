@@ -5,17 +5,14 @@ import WishlistItems from './WishlistItems';
 import WishlistContext from '../../store/wishlist-context';
 
 const Wishlist = () => {
-  const wishlistCtx = useContext(WishlistContext);
+  const { wishlistToggle } = useContext(WishlistContext);
 
   return (
     <>
-      <Backdrop onClose={wishlistCtx.wishlistToggle} />
+      <Backdrop onClose={wishlistToggle} />
       <div className={classes.container}>
         <div className={classes.btnContainer}>
-          <button
-            onClick={wishlistCtx.wishlistToggle}
-            className={classes.closeWishlistBtn}
-          >
+          <button onClick={wishlistToggle} className={classes.closeWishlistBtn}>
             X
           </button>
         </div>

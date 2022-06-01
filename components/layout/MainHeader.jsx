@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './MainHeader.module.css';
 import { CartBadge, WishlistBadge } from '../ui/Badge';
 import { Link } from '@mui/material';

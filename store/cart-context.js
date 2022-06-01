@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 const CartContext = React.createContext({
   cartItems: [],
+  showShoppingCart: false,
   addToCart: () => {},
   removeFromCart: () => {},
   shoppingCartToggle: () => {},
+  getStoredCartItems: () => {},
 });
 
 export const CartContextProvider = (props) => {

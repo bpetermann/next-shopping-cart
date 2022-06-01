@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 
 const WishlistContext = React.createContext({
   wishlistItems: [],
+  showWishlist: false,
   addToWishlist: () => {},
   removeFromWishlist: () => {},
+  wishlistToggle: () => {},
+  getStoredWishlistItems: () => {},
 });
 
 export const WishlistContextProvider = (props) => {

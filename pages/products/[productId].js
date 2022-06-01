@@ -18,13 +18,7 @@ const ProductDetailPage = ({ selectedProduct, allProducts }) => {
     <div>
       {showShoppingCart && <Cart />}
       {showWishlist && <Wishlist />}
-      <ProductDetail
-        name={selectedProduct.name}
-        description={selectedProduct.description}
-        price={selectedProduct.price}
-        id={selectedProduct.id}
-        amount={selectedProduct.amount}
-      />
+      <ProductDetail item={selectedProduct} />
     </div>
   );
 };
@@ -56,7 +50,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { selectedProduct: product, allProducts: allProducts },
-    revalidate: 30,
+    revalidate: 600,
   };
 }
 

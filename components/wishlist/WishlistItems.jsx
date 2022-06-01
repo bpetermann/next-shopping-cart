@@ -5,12 +5,12 @@ import classes from './WishlistItems.module.css';
 import WishlistContext from '../../store/wishlist-context';
 
 const WishlistItems = () => {
-  const ctx = useContext(CartContext);
-  const wishlistCtx = useContext(WishlistContext);
+  const { addToCart } = useContext(CartContext);
+  const { wishlistItems, removeFromWishlist } = useContext(WishlistContext);
 
   return (
     <>
-      {wishlistCtx.wishlistItems.map((item) => {
+      {wishlistItems.map((item) => {
         return (
           <div className={classes.container} key={item.id}>
             <img
@@ -20,7 +20,7 @@ const WishlistItems = () => {
             />
             <button
               className={classes.wishlistBtn}
-              onClick={() => wishlistCtx.removeFromWishlist(item)}
+              onClick={() => removeFromWishlist(item)}
             >
               <div className={classes['wishlist-heart-button']}>
                 <Image
@@ -33,10 +33,7 @@ const WishlistItems = () => {
             </button>
             <div className={classes.description}>{item.description}</div>
             <div className={classes.price}>{item.price} $</div>
-            <button
-              className={classes.button}
-              onClick={() => ctx.addToCart(item)}
-            >
+            <button className={classes.button} onClick={() => addToCart(item)}>
               Add to Cart
             </button>
           </div>

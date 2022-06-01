@@ -10,9 +10,10 @@ import { YourRating, AverageRating } from '../ui/Rating';
 import { useEffect, useState } from 'react';
 import CartContext from '../../store/cart-context';
 
-const ProductDetail = ({ name, description, price, id, amount }) => {
-  const cartCtx = useContext(CartContext);
+const ProductDetail = ({ item }) => {
+  const { addToCart } = useContext(CartContext);
   const [rating, setRating] = useState(null);
+  const { name, description, price, id } = item;
 
   const productRatingHandler = (value) => {
     const reqBody = { rating: value, id: id };
@@ -68,7 +69,7 @@ const ProductDetail = ({ name, description, price, id, amount }) => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                cartCtx.addToCart({ name, description, price, id, amount });
+                addToCart(item);
               }}
             >
               Add to Cart

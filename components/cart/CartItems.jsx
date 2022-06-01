@@ -3,11 +3,11 @@ import CartContext from '../../store/cart-context';
 import classes from './CartItems.module.css';
 
 const CartItems = () => {
-  const ctx = useContext(CartContext);
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
   return (
     <>
-      {ctx.cartItems.map((item) => {
+      {cartItems.map((item) => {
         return (
           <div key={item.name} className={classes.container}>
             <div>
@@ -20,13 +20,13 @@ const CartItems = () => {
             <div className={classes.quantityControl}>
               <button
                 className={classes.button}
-                onClick={() => ctx.addToCart(item)}
+                onClick={() => addToCart(item)}
               >
                 +
               </button>
               <button
                 className={classes.button}
-                onClick={() => ctx.removeFromCart(item)}
+                onClick={() => removeFromCart(item)}
               >
                 –
               </button>

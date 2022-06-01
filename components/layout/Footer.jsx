@@ -1,6 +1,5 @@
-import React from 'react';
-import Accordion from '../ui/Accordion';
 import classes from './Footer.module.css';
+import Accordion from '../ui/Accordion';
 import { SiTwitter, SiSpotify, SiFacebook, SiInstagram } from 'react-icons/si';
 import Newsletter from './Newsletter';
 

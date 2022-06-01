@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './Searchbar.module.css';
 
 const Searchbar = ({ onChangeSearchTerm }) => {

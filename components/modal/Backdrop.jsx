@@ -1,7 +1,7 @@
 import classes from './Backdrop.module.css';
 
-const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onClose}></div>;
+const Backdrop = ({ onClose }) => {
+  return <div className={classes.backdrop} onClick={onClose}></div>;
 };
 
 export default Backdrop;

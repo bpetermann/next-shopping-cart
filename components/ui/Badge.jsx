@@ -24,9 +24,9 @@ function CartBadge() {
   }, 0);
 
   return (
-    <IconButton aria-label='cart'>
+    <IconButton aria-label='cart' onClick={shoppingCartToggle}>
       <StyledBadge badgeContent={totalCartItems} color='warning'>
-        <ShoppingCartIcon onClick={shoppingCartToggle} />
+        <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>
   );
@@ -38,9 +38,9 @@ function WishlistBadge() {
   const totalWishlistItems = wishlistItems.length;
 
   return (
-    <IconButton aria-label='cart'>
+    <IconButton aria-label='cart' onClick={wishlistToggle}>
       <StyledBadge badgeContent={totalWishlistItems} color='warning'>
-        <FavoriteIcon onClick={() => wishlistToggle('wishListBtn')} />
+        <FavoriteIcon />
       </StyledBadge>
     </IconButton>
   );
