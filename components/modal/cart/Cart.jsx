@@ -1,7 +1,7 @@
 import classes from './Cart.module.css';
 import React, { useContext } from 'react';
-import Backdrop from '../modal/Backdrop';
-import CartContext from '../../store/cart-context';
+import Backdrop from '../Backdrop';
+import CartContext from '../../../store/cart-context';
 import CartItems from './CartItems';
 
 const Cart = () => {

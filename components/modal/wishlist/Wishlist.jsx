@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import classes from './Wishlist.module.css';
-import Backdrop from '../modal/Backdrop';
+import Backdrop from '../Backdrop';
 import WishlistItems from './WishlistItems';
-import WishlistContext from '../../store/wishlist-context';
+import WishlistContext from '../../../store/wishlist-context';
 
 const Wishlist = () => {
   const { wishlistToggle } = useContext(WishlistContext);

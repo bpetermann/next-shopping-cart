@@ -1,9 +1,11 @@
+import Head from 'next/head';
 import React, { useContext, useEffect } from 'react';
+import { getProducts } from '../../lib/products-util';
 import ProductDetail from '../../components/products/ProductDetail';
 import CartContext from '../../store/cart-context';
 import WishlistContext from '../../store/wishlist-context';
-import Wishlist from '../../components/wishlist/Wishlist';
-import Cart from '../../components/cart/Cart';
+import Wishlist from '../../components/modal/wishlist/Wishlist';
+import Cart from '../../components/modal/cart/Cart';
 
 const ProductDetailPage = ({ selectedProduct, allProducts }) => {
   const { getStoredCartItems, showShoppingCart } = useContext(CartContext);
@@ -15,32 +17,20 @@ const ProductDetailPage = ({ selectedProduct, allProducts }) => {
   }, []);
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>{selectedProduct.name}</title>
+        <meta name='description' content={selectedProduct.description} />
+      </Head>
       {showShoppingCart && <Cart />}
       {showWishlist && <Wishlist />}
       <ProductDetail item={selectedProduct} />
-    </div>
+    </>
   );
 };
 
 export async function getStaticProps(context) {
   const productId = context.params.productId;
-
-  async function getProducts() {
-    const response = await fetch(
-      'https://my-json-server.typicode.com/bpetermann/shopping-cart-jsonserver/storeItems'
-    );
-    const data = await response.json();
-    const products = [];
-
-    for (const key in data) {
-      products.push({
-        ...data[key],
-      });
-    }
-
-    return products;
-  }
 
   const products = await getProducts();
 
@@ -50,27 +40,10 @@ export async function getStaticProps(context) {
 
   return {
     props: { selectedProduct: product, allProducts: allProducts },
-    revalidate: 600,
   };
 }
 
 export async function getStaticPaths() {
-  async function getProducts() {
-    const response = await fetch(
-      'https://my-json-server.typicode.com/bpetermann/shopping-cart-jsonserver/storeItems'
-    );
-    const data = await response.json();
-    const products = [];
-
-    for (const key in data) {
-      products.push({
-        ...data[key],
-      });
-    }
-
-    return products;
-  }
-
   const data = await getProducts();
 
   const ids = data.map((product) => product.id);
@@ -79,7 +52,6 @@ export async function getStaticPaths() {
   return {
     paths: pathsWithParams,
     fallback: false,
-    // fallback: 'blocking',
   };
 }
 

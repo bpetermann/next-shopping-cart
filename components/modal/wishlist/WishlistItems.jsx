@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
-import CartContext from '../../store/cart-context';
+import CartContext from '../../../store/cart-context';
 import classes from './WishlistItems.module.css';
-import WishlistContext from '../../store/wishlist-context';
+import WishlistContext from '../../../store/wishlist-context';
 
 const WishlistItems = () => {
   const { addToCart } = useContext(CartContext);

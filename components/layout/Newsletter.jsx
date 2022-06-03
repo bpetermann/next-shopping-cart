@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Newsletter.module.css';
 import { AiOutlineMail } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 const Newsletter = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -20,7 +21,7 @@ const Newsletter = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => toast.success(data.message));
   };
 
   return (

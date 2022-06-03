@@ -25,7 +25,9 @@ function handler(req, res) {
     const data = extractFeedback(filePath);
     data.push(newRating);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.status(201).json({ message: 'Success!', rating: newRating });
+    res
+      .status(201)
+      .json({ message: 'Your rating was stored', rating: newRating });
   }
 }
 

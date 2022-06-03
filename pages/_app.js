@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import Layout from '../components/ui/layout';
 import { CartContextProvider } from '../store/cart-context';
 import { WishlistContextProvider } from '../store/wishlist-context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }) {
             />
           </Head>
           <Component {...pageProps} />
+          <ToastContainer />
         </Layout>
       </WishlistContextProvider>
     </CartContextProvider>

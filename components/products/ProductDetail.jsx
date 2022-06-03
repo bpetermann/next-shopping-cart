@@ -9,6 +9,7 @@ import { GoPackage } from 'react-icons/go';
 import { YourRating, AverageRating } from '../ui/Rating';
 import { useEffect, useState } from 'react';
 import CartContext from '../../store/cart-context';
+import { toast } from 'react-toastify';
 
 const ProductDetail = ({ item }) => {
   const { addToCart } = useContext(CartContext);
@@ -26,7 +27,7 @@ const ProductDetail = ({ item }) => {
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => toast.success(data.message));
   };
 
   useEffect(() => {

@@ -24,7 +24,9 @@ function handler(req, res) {
     const data = extractFeedback(filePath);
     data.push(userEmail);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.status(201).json({ message: 'Success!', email: userEmail });
+    res
+      .status(201)
+      .json({ message: 'Your email was added', email: userEmail });
   }
 }
 
