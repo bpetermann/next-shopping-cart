@@ -13,10 +13,12 @@ const WishlistItems = () => {
       {wishlistItems.map((item) => {
         return (
           <div className={classes.container} key={item.id}>
-            <img
+            <Image
               src={`/images/${item.name}.png`}
               alt={item.name}
               className={classes.image}
+              width={160}
+              height={224}
             />
             <button
               className={classes.wishlistBtn}

@@ -41,7 +41,7 @@ const Newsletter = () => {
             placeholder='Your Email'
             value={enteredEmail}
           />
-          <h3>I'm mostly interested in</h3>
+          <h3>I&apos;m mostly interested in</h3>
           <div>
             <input
               type='checkbox'
@@ -50,7 +50,7 @@ const Newsletter = () => {
               value='wfashion'
               defaultChecked='checked'
             />
-            <label htmlFor='wfashion'>Women's Fahsion</label>
+            <label htmlFor='wfashion'>Women&apos;s Fahsion</label>
           </div>
           <div>
             <input
@@ -59,7 +59,7 @@ const Newsletter = () => {
               name='mfashion'
               value='mfashion'
             />
-            <label htmlFor='mfashion'>Men's Fashion</label>
+            <label htmlFor='mfashion'>Men&apos;s Fashion</label>
           </div>
           <button type='submit' className={classes.button}>
             <AiOutlineMail size={22} className={classes['newsletter-icon']} />

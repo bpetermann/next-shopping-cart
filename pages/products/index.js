@@ -4,8 +4,11 @@ import { getProducts } from '../../lib/products-util';
 import ProductsOverview from '../../components/products/ProductsOverview';
 import WishlistContext from '../../store/wishlist-context';
 import CartContext from '../../store/cart-context';
-import Wishlist from '../../components/modal/wishlist/Wishlist';
-import Cart from '../../components/modal/cart/Cart';
+import dynamic from 'next/dynamic';
+const Wishlist = dynamic(() =>
+  import('../../components/modal/wishlist/Wishlist')
+);
+const Cart = dynamic(() => import('../../components/modal/cart/Cart'));
 
 const HomePage = ({ products }) => {
   const { getStoredCartItems, showShoppingCart } = useContext(CartContext);
@@ -14,6 +17,7 @@ const HomePage = ({ products }) => {
   useEffect(() => {
     getStoredWishlistItems(products);
     getStoredCartItems(products);
+    // eslint-disable-next-line
   }, []);
 
   const [searchTerm, setSearchTerm] = useState('');
