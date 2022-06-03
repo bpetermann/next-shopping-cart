@@ -20,8 +20,7 @@
 }
 
 .model-image {
-  height: 12rem;
-  padding: 1rem;
+  object-fit: cover;
 }
 
 .advertise {
@@ -29,6 +28,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
 }
 
 .products-container {
