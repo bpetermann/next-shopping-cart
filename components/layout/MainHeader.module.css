@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.06rem solid #d0d1d3;
@@ -17,9 +16,14 @@
   color: black;
 }
 
+.logo-icon {
+  color: #ed6c02;
+  margin-bottom: -0.1rem;
+  margin-right: 0.2rem;
+}
+
 .btnContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }

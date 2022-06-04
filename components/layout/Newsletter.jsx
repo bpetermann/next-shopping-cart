@@ -10,18 +10,26 @@ const Newsletter = () => {
     setEnteredEmail(e.target.value);
   };
 
-  const registrationHandler = (e) => {
+  const registrationHandler = async (e) => {
     e.preventDefault();
 
-    fetch('/api/newsletter', {
-      method: 'POST',
-      body: JSON.stringify({ email: enteredEmail }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => toast.success(data.message));
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        body: JSON.stringify({ email: enteredEmail }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong!');
+      }
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (

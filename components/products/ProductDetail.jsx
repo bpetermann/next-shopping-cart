@@ -6,7 +6,7 @@ import Footer from '../layout/Footer';
 import { RiTruckLine } from 'react-icons/ri';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
-import { YourRating, AverageRating } from '../ui/Rating';
+import { AverageRating } from '../ui/Rating';
 import CartContext from '../../store/cart-context';
 import { toast } from 'react-toastify';
 
@@ -61,7 +61,6 @@ const ProductDetail = ({ item }) => {
                 ratings={rating.userRatings}
               />
             )}
-            <YourRating productRating={productRatingHandler} />
           </div>
           <form className={classes['product-order-form']}>
             <select>

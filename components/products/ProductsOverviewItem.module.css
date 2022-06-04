@@ -25,11 +25,6 @@
   font-size: 1rem;
 }
 
-.button:hover {
-  opacity: 0.8;
-  border: 3px solid #000;
-}
-
 .wishlist-button {
   cursor: pointer;
   align-items: center;
@@ -38,13 +33,16 @@
   text-decoration: none;
   border: none;
   position: relative;
-  top: -12rem;
-  left: 4rem;
+  top: -13.8rem;
+  left: 3.1rem;
+}
+
+.wishlist-button:hover {
+  background-color: #fff;
 }
 
 .wishlist-heart-button {
-  filter: invert(29%) sepia(98%) saturate(2440%) hue-rotate(6deg)
-    brightness(108%) contrast(102%);
+  color: #ed6c02;
 }
 
 .bump {
