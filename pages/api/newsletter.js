@@ -2,14 +2,15 @@ import { MongoClient } from 'mongodb';
 
 async function handler(req, res) {
   if (req.method === 'POST') {
-    const userEmail = req.body.email;
-    if (!userEmail || !userEmail.includes('@')) {
+    const { email, interestedIn } = req.body;
+    if (!email || !email.includes('@')) {
       res.status(422).json({ message: 'Invalid input.' });
       return;
     }
 
     const newSubscription = {
-      userEmail,
+      email,
+      interestedIn,
     };
 
     let client;

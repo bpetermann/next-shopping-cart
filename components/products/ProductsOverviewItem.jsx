@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import classes from './ProductsOverviewItem.module.css';
 import Image from 'next/image';
 import { Link } from '@mui/material';
-// import StyledIcon from '@mui/material/StyledIcon';
 import StyledIcon from '../ui/StyledIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CartContext from '../../store/cart-context';

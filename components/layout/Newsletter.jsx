@@ -5,18 +5,18 @@ import { toast } from 'react-toastify';
 
 const Newsletter = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
-
-  const emailInputHandler = (e) => {
-    setEnteredEmail(e.target.value);
-  };
+  const [mfashion, setMFashion] = useState(false);
+  const [wfashion, setWFashion] = useState(true);
 
   const registrationHandler = async (e) => {
     e.preventDefault();
 
+    const interestedIn = { mfashion: mfashion, wfashion: wfashion };
+
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
-        body: JSON.stringify({ email: enteredEmail }),
+        body: JSON.stringify({ email: enteredEmail, interestedIn }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -41,13 +41,13 @@ const Newsletter = () => {
           onSubmit={registrationHandler}
         >
           <input
-            onChange={emailInputHandler}
             className={classes.emailadress}
             type='email'
             id='email'
             name='email'
             placeholder='Your Email'
             value={enteredEmail}
+            onChange={(e) => setEnteredEmail(e.target.value)}
           />
           <h3>I&apos;m mostly interested in</h3>
           <div>
@@ -56,7 +56,8 @@ const Newsletter = () => {
               id='wfashion'
               name='wfashion'
               value='wfashion'
-              defaultChecked='checked'
+              checked={wfashion}
+              onChange={(e) => setWFashion(e.target.checked)}
             />
             <label htmlFor='wfashion'>Women&apos;s Fahsion</label>
           </div>
@@ -66,6 +67,8 @@ const Newsletter = () => {
               id='mfashion'
               name='mfashion'
               value='mfashion'
+              checked={mfashion}
+              onChange={(e) => setMFashion(e.target.checked)}
             />
             <label htmlFor='mfashion'>Men&apos;s Fashion</label>
           </div>
