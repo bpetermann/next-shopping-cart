@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import classes from './ProductsOverviewItem.module.css';
 import Image from 'next/image';
 import { Link } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
+// import StyledIcon from '@mui/material/StyledIcon';
+import StyledIcon from '../ui/StyledIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CartContext from '../../store/cart-context';
 import WishlistContext from '../../store/wishlist-context';
@@ -27,19 +28,13 @@ const ProductsOverviewItem = ({ products }) => {
               />
             </Link>
             {wishlistItems.includes(item) ? (
-              <IconButton
-                className={classes['wishlist-button']}
-                onClick={() => removeFromWishlist(item)}
-              >
+              <StyledIcon onClick={() => removeFromWishlist(item)}>
                 <FavoriteIcon className={classes['wishlist-heart-button']} />
-              </IconButton>
+              </StyledIcon>
             ) : (
-              <IconButton
-                className={classes['wishlist-button']}
-                onClick={() => addToWishlist(item)}
-              >
+              <StyledIcon onClick={() => addToWishlist(item)}>
                 <FavoriteIcon />
-              </IconButton>
+              </StyledIcon>
             )}
             <div>{item.description}</div>
             <div>{item.price} $</div>

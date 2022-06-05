@@ -6,6 +6,7 @@
 
 - Rebuilding the [shopping-cart](https://github.com/bpetermann/shopping-cart) project with nextjs
 - Using getstaticprops, api-routes, next/image, etc.
+- [View Live](https://next-shopping-cart-beige.vercel.app/)
 
 ## Getting Started
 
@@ -21,6 +22,12 @@ yarn dev
 ### Tools
 
 - [Next.js](https://nextjs.org/)
+
+### Thanks
+
+- Video by Ba Tik on <a href="https://www.pexels.com/de-de/video/frau-die-auf-einer-couch-mit-sonnenstrahlen-sitzt-die-durch-das-fenster-gehen-3753702/">Pexels</a>
+- Model photo by <a href="https://unsplash.com/@sadswim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">ian dooley</a> on <a href="https://unsplash.com/s/photos/model?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
+- Product photos by <a href="https://unsplash.com/@ikredenets?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Irene Kredenets</a> on <a href="https://unsplash.com/s/photos/shoes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 ### Learn More
 

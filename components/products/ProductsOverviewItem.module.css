@@ -25,21 +25,9 @@
   font-size: 1rem;
 }
 
-.wishlist-button {
-  cursor: pointer;
-  align-items: center;
-  vertical-align: middle;
-  background-color: #fff;
-  text-decoration: none;
-  border: none;
-  position: relative;
-  top: -13.8rem;
-  left: 3.1rem;
-}
+/* .wishlist-button {
 
-.wishlist-button:hover {
-  background-color: #fff;
-}
+} */
 
 .wishlist-heart-button {
   color: #ed6c02;

@@ -30,7 +30,7 @@
 .emailadress:focus,
 .emailadress:active,
 .emailadress:hover {
-  outline: 0.125rem solid #000;
+  outline: 0.125rem solid #1a1a1a;
 }
 
 .newsletter-icon {
@@ -39,7 +39,7 @@
 }
 
 .button {
-  background-color: black;
+  background-color: #1a1a1a;
   color: #fff;
   font-size: 1rem;
   height: 2.5rem;
