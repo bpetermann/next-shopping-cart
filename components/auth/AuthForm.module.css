@@ -1,0 +1,12 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-border {
+  width: 100%;
+  margin: 1.75rem 0rem;
+  border-bottom: 0.06rem solid #d0d1d3;
+}

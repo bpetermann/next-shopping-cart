@@ -22,10 +22,15 @@
   margin-right: 0.2rem;
 }
 
-.btnContainer {
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.auth-user-icon {
+  color: #757575;
+  cursor: pointer;
 }
 
 .container h2 {

@@ -17,12 +17,18 @@
 }
 
 .button {
+  cursor: pointer;
   background-color: transparent;
   outline: none;
-  border: 1px solid #000;
+  border: 0.02rem solid #000;
   width: 8rem;
   height: 3rem;
   font-size: 1rem;
+}
+
+.button:hover {
+  opacity: 0.8;
+  border: 0.1rem solid #000;
 }
 
 .wishlist-heart-button {

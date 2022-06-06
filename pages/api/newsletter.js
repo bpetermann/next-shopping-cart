@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { connectToDatabase } from '../../lib/db-util';
 
 async function handler(req, res) {
   if (req.method === 'POST') {
@@ -15,9 +15,7 @@ async function handler(req, res) {
 
     let client;
     try {
-      client = await MongoClient.connect(
-        `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@cluster0.gi0qz.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
-      );
+      client = await connectToDatabase();
     } catch (error) {
       res.status(500).json({ message: 'Could not connect to database' });
       return;
