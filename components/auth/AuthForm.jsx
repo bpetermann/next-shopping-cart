@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import classes from './AuthForm.module.css';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -22,6 +25,8 @@ async function createUser(email, password) {
 }
 
 const AuthForm = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
   const [showSignUpForm, setShowSignUpForm] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -40,36 +45,63 @@ const AuthForm = () => {
 
     try {
       const result = await createUser(enteredEmail, enteredPassword);
-      console.log(result);
+      toast.success(result.message);
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
 
-  const signInHandler = () => {
-    console.log(formData);
+  const signInHandler = async () => {
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: email,
+      password: password,
+    });
+
+    if (result.error) {
+      toast.error(result.error);
+      return;
+    }
+
+    router.replace('/products');
+  };
+
+  const logoutHandler = () => {
+    signOut();
   };
 
   return (
     <div className={classes['form-container']}>
-      <SignIn
-        signUpForm={showSignUpForm}
-        setSignUpForm={showSignUpFormHandler}
-        email={email}
-        password={password}
-        setFormData={setFormData}
-        signIn={signInHandler}
-      />
-      <div className={classes['signup-border']}></div>
-      <SignUp
-        signUpForm={showSignUpForm}
-        setSignUpForm={showSignUpFormHandler}
-        email={email}
-        password={password}
-        confirmPassword={confirmPassword}
-        setFormData={setFormData}
-        signUp={signUpHandler}
-      />
+      {session && (
+        <>
+          <h2>Until next time</h2>
+          <button className={classes['logout-button']} onClick={logoutHandler}>
+            Logout
+          </button>
+        </>
+      )}
+      {!session && (
+        <>
+          <SignIn
+            signUpForm={showSignUpForm}
+            setSignUpForm={showSignUpFormHandler}
+            email={email}
+            password={password}
+            setFormData={setFormData}
+            signIn={signInHandler}
+          />
+          <div className={classes['signup-border']}></div>
+          <SignUp
+            signUpForm={showSignUpForm}
+            setSignUpForm={showSignUpFormHandler}
+            email={email}
+            password={password}
+            confirmPassword={confirmPassword}
+            setFormData={setFormData}
+            signUp={signUpHandler}
+          />
+        </>
+      )}
     </div>
   );
 };

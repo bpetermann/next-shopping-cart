@@ -6,7 +6,7 @@
 
 - Rebuilding the [shopping-cart](https://github.com/bpetermann/shopping-cart) project with nextjs
 - Using getstaticprops, api-routes, next/image, etc.
-- [View Live](https://next-shopping-cart-beige.vercel.app/)
+- [View Live on Vercel](https://next-shopping-cart-beige.vercel.app/)
 
 ## Getting Started
 

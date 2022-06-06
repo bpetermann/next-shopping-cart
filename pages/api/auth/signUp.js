@@ -11,14 +11,16 @@ async function handler(req, res) {
 
   if (!email || !email.includes('@')) {
     res.status(422).json({
-      message: 'Please enter a valid email address.',
+      message: 'Please enter a valid email address',
     });
     return;
   }
 
-  if (!password || password.trim().length < 7) {
+  // eslint-disable-next-line
+  const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  if (!password || password.trim().length < 6 || !format.test(password)) {
     res.status(422).json({
-      message: 'Please enter a valid password.',
+      message: 'Please enter a valid password',
     });
     return;
   }
@@ -30,7 +32,7 @@ async function handler(req, res) {
   const existingUser = await db.collection('users').findOne({ email: email });
 
   if (existingUser) {
-    res.status(422).json({ message: 'User exists already!' });
+    res.status(422).json({ message: 'User already exists!' });
     client.close();
     return;
   }
@@ -42,7 +44,7 @@ async function handler(req, res) {
     password: hashedPassword,
   });
 
-  res.status(201).json({ message: 'Created user!' });
+  res.status(201).json({ message: 'Registration Successful!' });
   client.close();
 }
 

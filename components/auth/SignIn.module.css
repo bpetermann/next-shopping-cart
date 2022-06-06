@@ -39,7 +39,7 @@
   position: absolute;
   top: 10%;
   right: 2.5%;
-  color: #888;
+  color: #313131;
 }
 
 .button-container {
@@ -70,7 +70,6 @@
 .enable-signIn-button {
   width: 90%;
   max-width: 25rem;
-  margin: 1.75rem;
   cursor: pointer;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -89,6 +88,9 @@
 
 @media (min-width: 40rem) {
   .form {
+    width: 50%;
+  }
+  .enable-signIn-button {
     width: 50%;
   }
 }
