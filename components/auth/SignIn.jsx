@@ -30,7 +30,7 @@ const SignIn = ({
         <h2>Welcome back</h2>
         <button
           onClick={setSignUpForm}
-          className={classes['enable-signIn-button']}
+          className={classes['enable-login-button']}
         >
           Sign In
         </button>
@@ -71,7 +71,7 @@ const SignIn = ({
         </div>
 
         <div className={classes['button-container']}>
-          <button className={classes['signup-button']}>Sign In</button>
+          <button className={classes['login-button']}>Sign In</button>
         </div>
       </form>
     </>

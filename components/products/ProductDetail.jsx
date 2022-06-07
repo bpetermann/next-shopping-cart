@@ -8,26 +8,11 @@ import { BsArrowReturnLeft } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
 import { AverageRating } from '../ui/Rating';
 import CartContext from '../../store/cart-context';
-import { toast } from 'react-toastify';
 
 const ProductDetail = ({ item }) => {
   const { addToCart } = useContext(CartContext);
   const [rating, setRating] = useState(null);
   const { name, description, price, id } = item;
-
-  const productRatingHandler = (value) => {
-    const reqBody = { rating: value, id: id };
-
-    fetch('/api/ratings', {
-      method: 'POST',
-      body: JSON.stringify(reqBody),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => toast.success(data.message));
-  };
 
   useEffect(() => {
     fetch(`/api/ratings/${id}`)

@@ -4,22 +4,14 @@
   max-width: 25rem;
 }
 
-.form label {
-  line-height: 1.5;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.375rem 0.75rem;
-}
-
 .emailInput,
 .passwordInput {
   box-sizing: border-box;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 2;
   border: 0.02rem solid #1a1a1a;
-  transition: border-color 0.15s ease-in-out;
+  transition: outline 0.2s ease-in-out;
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -47,11 +39,7 @@
   justify-content: space-between;
 }
 
-.password-info {
-  margin-top: -1rem;
-}
-
-.signup-button {
+.login-button {
   width: 100%;
   cursor: pointer;
   padding: 0.375rem 0.75rem;
@@ -64,10 +52,9 @@
 
 .signup-button:hover {
   background-color: #66676e;
-  outline: none;
 }
 
-.enable-signIn-button {
+.enable-login-button {
   width: 90%;
   max-width: 25rem;
   cursor: pointer;
@@ -80,7 +67,7 @@
   outline: 0.08rem solid #1a1a1a;
 }
 
-.enable-signIn-button:hover {
+.enable-login-button:hover {
   background-color: #66676e;
   color: #fff;
   outline: none;
@@ -90,7 +77,7 @@
   .form {
     width: 50%;
   }
-  .enable-signIn-button {
+  .enable-login-button {
     width: 50%;
   }
 }
