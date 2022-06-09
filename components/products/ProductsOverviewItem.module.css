@@ -5,15 +5,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .product-image {
   cursor: pointer;
 }
 
-.price {
-  margin: 0.5rem;
+.item-price {
+  margin: 0.6rem 0;
 }
 
 .button {

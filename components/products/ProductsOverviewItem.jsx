@@ -36,7 +36,7 @@ const ProductsOverviewItem = ({ products }) => {
               </StyledIcon>
             )}
             <div>{item.description}</div>
-            <div>{item.price} $</div>
+            <div className={classes['item-price']}>{item.price} $</div>
             <button className={classes.button} onClick={() => addToCart(item)}>
               Add to Cart
             </button>

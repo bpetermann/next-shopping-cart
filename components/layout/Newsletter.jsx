@@ -3,6 +3,24 @@ import classes from './Newsletter.module.css';
 import { AiOutlineMail } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 
+async function addNewsletterSubscription(enteredEmail, interestedIn) {
+  const response = await fetch('/api/newsletter', {
+    method: 'POST',
+    body: JSON.stringify({ email: enteredEmail, interestedIn }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
+}
+
 const Newsletter = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [mfashion, setMFashion] = useState(false);
@@ -10,23 +28,14 @@ const Newsletter = () => {
 
   const registrationHandler = async (e) => {
     e.preventDefault();
-
     const interestedIn = { mfashion: mfashion, wfashion: wfashion };
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        body: JSON.stringify({ email: enteredEmail, interestedIn }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong!');
-      }
-      toast.success(data.message);
+      const result = await addNewsletterSubscription(
+        enteredEmail,
+        interestedIn
+      );
+      toast.success(result.message);
     } catch (error) {
       toast.error(error.message);
     }
