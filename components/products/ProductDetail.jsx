@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
 import classes from './ProductDetail.module.css';
 import Image from 'next/image';
 import Accordion from '../ui/Accordion';
@@ -6,13 +8,41 @@ import Footer from '../layout/Footer';
 import { RiTruckLine } from 'react-icons/ri';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
-import { AverageRating } from '../ui/Rating';
+import { AverageRating, YourRating } from '../ui/Rating';
 import CartContext from '../../store/cart-context';
 
+async function addProductRating(value, id) {
+  const response = await fetch('/api/ratings', {
+    method: 'POST',
+    body: JSON.stringify({ rating: value, id: id }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
+}
+
 const ProductDetail = ({ item }) => {
+  const { data: session } = useSession();
   const { addToCart } = useContext(CartContext);
   const [rating, setRating] = useState(null);
   const { name, description, price, id } = item;
+
+  const productRatingHandler = async (value) => {
+    try {
+      const result = await addProductRating(value, id);
+      toast.success(result.message);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   useEffect(() => {
     fetch(`/api/ratings/${id}`)
@@ -40,6 +70,7 @@ const ProductDetail = ({ item }) => {
           <p className={classes['product-description']}>{description}</p>
           <p>€{price}</p>
           <div className={classes['product-rating']}>
+            {session && <YourRating productRating={productRatingHandler} />}
             {rating && (
               <AverageRating
                 average={rating.average}
