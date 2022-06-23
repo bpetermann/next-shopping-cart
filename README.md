@@ -4,8 +4,9 @@
 
 ### Description
 
-- Rebuilding the [shopping-cart](https://github.com/bpetermann/shopping-cart) project with nextjs
+- Rebuilding my [shopping-cart](https://github.com/bpetermann/shopping-cart) project with nextjs
 - Using getstaticprops, api-routes, next/image, etc.
+- MongoDb is used for storing newsletter subscriptions and product ratings
 - [View Live on Vercel](https://next-shopping-cart-beige.vercel.app/)
 
 ## Getting Started
@@ -21,7 +22,11 @@ yarn dev
 
 ### Tools
 
-- [Next.js](https://nextjs.org/)
+- [next.js](https://nextjs.org/)
+- [mongodb](https://www.mongodb.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [react-toastify](https://www.npmjs.com/package/react-toastify)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 
 ### Thanks
 
