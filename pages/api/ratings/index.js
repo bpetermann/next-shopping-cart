@@ -1,4 +1,4 @@
-import { connectToDatabase, getAllDocuments } from '../../../lib/db-util';
+import { connectToDatabase } from '../../../lib/db-util';
 
 async function handler(req, res) {
   let client;
@@ -12,13 +12,26 @@ async function handler(req, res) {
   if (req.method === 'POST') {
     const productId = req.body.id;
     const userRating = req.body.rating;
+    const userEmail = req.body.user;
 
     const newRating = {
       id: productId,
       rating: userRating,
+      user: userEmail,
     };
 
     const db = client.db();
+
+    const userRatingExists = await db.collection('ratings').findOne({
+      user: userEmail,
+      id: productId,
+    });
+
+    if (userRatingExists) {
+      res.status(400).json({ message: 'Product was already rated!' });
+      client.close();
+      return;
+    }
 
     try {
       const result = await db.collection('ratings').insertOne(newRating);

@@ -11,10 +11,10 @@ import { GoPackage } from 'react-icons/go';
 import { AverageRating, YourRating } from '../ui/Rating';
 import CartContext from '../../store/cart-context';
 
-async function addProductRating(value, id) {
+async function addProductRating(value, id, user) {
   const response = await fetch('/api/ratings', {
     method: 'POST',
-    body: JSON.stringify({ rating: value, id: id }),
+    body: JSON.stringify({ rating: value, id: id, user: user }),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -37,7 +37,7 @@ const ProductDetail = ({ item }) => {
 
   const productRatingHandler = async (value) => {
     try {
-      const result = await addProductRating(value, id);
+      const result = await addProductRating(value, id, session.user.email);
       toast.success(result.message);
     } catch (error) {
       toast.error(error.message);
