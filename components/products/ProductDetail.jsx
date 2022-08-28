@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import classes from './ProductDetail.module.css';
 import Image from 'next/image';
+import AddToCartBtn from '../ui/AddToCartBtn';
 import Accordion from '../ui/Accordion';
 import Footer from '../layout/Footer';
 import { RiTruckLine } from 'react-icons/ri';
@@ -58,7 +59,7 @@ const ProductDetail = ({ item }) => {
       <div className={classes['container']}>
         <div className={classes['image-container']}>
           <Image
-            src={`/images/${name}.png`}
+            src={`/images/products/${name}.png`}
             alt={name}
             className={classes['product-image']}
             width={500}
@@ -78,18 +79,16 @@ const ProductDetail = ({ item }) => {
               />
             )}
           </div>
-          <form className={classes['product-order-form']}>
+          <form
+            className={classes['product-order-form']}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <select>
               <option value='one'>One Size</option>
             </select>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                addToCart(item);
-              }}
-            >
-              Add to Cart
-            </button>
+            <AddToCartBtn product={item} btnStyle={'form-add-btn'} />
           </form>
           <table className={classes['product-table']}>
             <tbody>

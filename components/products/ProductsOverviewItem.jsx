@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import classes from './ProductsOverviewItem.module.css';
 import Image from 'next/image';
+import AddToCartBtn from '../ui/AddToCartBtn';
 import { Link } from '@mui/material';
 import StyledIcon from '../ui/StyledIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -19,7 +20,7 @@ const ProductsOverviewItem = ({ products }) => {
           <div className={classes['product-item-container']} key={item.id}>
             <Link href={`/products/${item.id}`}>
               <Image
-                src={`/images/${item.name}.png`}
+                src={`/images/products/${item.name}.png`}
                 alt={item.name}
                 className={classes['product-image']}
                 width={160}
@@ -37,9 +38,7 @@ const ProductsOverviewItem = ({ products }) => {
             )}
             <div>{item.description}</div>
             <div className={classes['item-price']}>{item.price} $</div>
-            <button className={classes.button} onClick={() => addToCart(item)}>
-              Add to Cart
-            </button>
+            <AddToCartBtn product={item} btnStyle={'add-btn'} />
           </div>
         );
       })}

@@ -14,7 +14,7 @@ const WishlistItems = () => {
         return (
           <div className={classes.container} key={item.id}>
             <Image
-              src={`/images/${item.name}.png`}
+              src={`/images/products/${item.name}.png`}
               alt={item.name}
               className={classes.image}
               width={160}
@@ -35,7 +35,13 @@ const WishlistItems = () => {
             </button>
             <div className={classes.description}>{item.description}</div>
             <div className={classes.price}>{item.price} $</div>
-            <button className={classes.button} onClick={() => addToCart(item)}>
+            <button
+              className={classes.button}
+              onClick={() => {
+                addToCart(item);
+                removeFromWishlist(item);
+              }}
+            >
               Add to Cart
             </button>
           </div>
