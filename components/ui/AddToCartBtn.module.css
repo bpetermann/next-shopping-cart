@@ -24,6 +24,12 @@
   opacity: 0.8;
 }
 
+@media (max-width: 40rem) {
+  .form-add-btn:hover {
+    opacity: 1;
+  }
+}
+
 .added {
   background-color: #008953;
   border-color: #008953;

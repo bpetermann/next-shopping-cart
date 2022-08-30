@@ -1,4 +1,4 @@
-import styles from './AddToCartBtn.module.css';
+import classes from './AddToCartBtn.module.css';
 import { useState, useContext } from 'react';
 import CartContext from '../../store/cart-context';
 import Image from 'next/image';
@@ -8,8 +8,8 @@ const AddButton = ({ product, btnStyle }) => {
   const [productWasAdded, setProductWasAdded] = useState(false);
   const cartCtx = useContext(CartContext);
 
-  const buttonClasses = `${styles[btnStyle]} ${
-    productWasAdded && styles['added']
+  const buttonClasses = `${classes[btnStyle]} ${
+    productWasAdded && classes['added']
   }`;
 
   const addToCartHandler = (product) => {
@@ -32,11 +32,11 @@ const AddButton = ({ product, btnStyle }) => {
       }}
     >
       {isLoading ? (
-        <div className={styles['loading-container']}>
+        <div className={classes['loading-container']}>
           <Image
             src={`/images/spinner.gif`}
             alt={'Add to Cart'}
-            className={styles['loading']}
+            className={classes['loading']}
             width={22}
             height={22}
           />
