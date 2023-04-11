@@ -30,8 +30,7 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
               color: color,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            When you complete your order, we will show you in what timeframe your package is expected to arrive.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -60,8 +59,7 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
               color: color,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            You can redeem your promotional voucher in the last step of the order process.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -90,8 +88,7 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
               color: color,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            If you are shipping internationally, there are several delivery speed options available during the checkout process, usually standard, express and priority delivery.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -101,5 +98,5 @@ export default function SimpleAccordion({ color, backgroundColor, headline }) {
 
 SimpleAccordion.defaultProps = {
   color: '#000',
-  headline: ['About us', 'Contact & FAQ', 'Careers'],
+  headline: ['Help & Contact', 'Gift cards', 'Shipping'],
 };

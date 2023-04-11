@@ -123,7 +123,7 @@ const ProductDetail = ({ item }) => {
             </tbody>
           </table>
           <Accordion
-            headline={['Materials & Care', 'Quality', 'Delivery & Returns']}
+            headline={['Help & Contact', 'Gift cards', 'Shipping']}
           />
         </div>
       </div>
