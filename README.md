@@ -1,4 +1,5 @@
 # Next Shopping Cart
+**This project will no longer be updated and therefore archieved**
 
 ## Project Overview
 
