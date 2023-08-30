@@ -8,7 +8,6 @@
 - Rebuilding my [shopping-cart](https://github.com/bpetermann/shopping-cart) project with nextjs
 - Using getstaticprops, api-routes, next/image, etc.
 - MongoDb is used for storing newsletter subscriptions and product ratings
-- [View Live on Vercel](https://next-shopping-cart-beige.vercel.app/)
 
 ## Getting Started
 
